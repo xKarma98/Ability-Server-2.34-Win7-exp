@@ -40,3 +40,9 @@ msfvenom -a x86 --platform Windows -p windows/shell_bind_tcp LPORT=4444 -b '\x00
 <img width="518" height="228" alt="asM" src="https://github.com/user-attachments/assets/b06cfa37-4945-45dd-a3cc-9acf4bc9217e" />
 
 
+# Sources:
+https://blog.naver.com/sjhmc9695/221495713802 # Credit for initial skeleton payload.
+
+https://iwayinfocenter.informationbuilders.com/TLs/TL_soa_ism_ftp/source/ftpserver_config41.htm
+
+https://wmsmartt.wordpress.com/2011/11/25/ability-ftp-2-34-stack-based-buffer-overflow/
