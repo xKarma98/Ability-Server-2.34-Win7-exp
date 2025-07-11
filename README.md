@@ -6,4 +6,10 @@ Second I noticed this is authenticated.
 Thirdly, I grabbed a copy of this binary on exploit-db popped it into IDA and noticed how the buffers had no sanitization.
 
 With the aid of another blog I figured out how to fuzz this command because I have never done so before.
-We will place that code in the fuzz-test.py
+We will place that code in the fuzz1.py
+
+With 1000 chars it crashed now we need the pattern offset, optimially I just used mona to save some time `!mona po 67423167`
+<img width="530" height="219" alt="dM" src="https://github.com/user-attachments/assets/db2fbc0c-aab4-439c-bf83-b8fbd750537f" />
+
+
+After we collect the offset, we need to do a EIP overwrite to ensure we have the control.
