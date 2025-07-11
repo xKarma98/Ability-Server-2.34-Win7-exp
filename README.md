@@ -17,6 +17,7 @@ With 1000 chars it crashed now we need the pattern offset, optimially I just use
 
 
 After we collect the offset, we need to do a EIP overwrite to ensure we have the control.
+What you can do if you want this manually is take your current offset and add B or C to it, B will appear as `424242424` C will be `4343434343`
 
 <img width="317" height="300" alt="44124" src="https://github.com/user-attachments/assets/9bb091a5-d8bf-4bc8-a49f-e418ff0f0ad4" />
 
