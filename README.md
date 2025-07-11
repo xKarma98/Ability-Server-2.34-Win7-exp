@@ -13,3 +13,6 @@ With 1000 chars it crashed now we need the pattern offset, optimially I just use
 
 
 After we collect the offset, we need to do a EIP overwrite to ensure we have the control.
+<img width="317" height="300" alt="44124" src="https://github.com/user-attachments/assets/9bb091a5-d8bf-4bc8-a49f-e418ff0f0ad4" />
+
+We have done so. But now we need to eliminate the bad chars, otherwise we will have some serious issues.
